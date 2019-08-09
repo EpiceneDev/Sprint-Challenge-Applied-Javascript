@@ -21,25 +21,46 @@
 axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(res => {
-        console.log(res);
-        res.data.articles
+        let articles = res.data.articles;
+        console.log("articles: ", articles);
+        // if (articles == "Bootstrap") {
+        // }
+
+        let articlesArray = Array.from(articles);
+        articlesArray.map(article => {
+            
+            createCard(article);
+            let body = document.querySelector("body");
+            body.appendChild(card);
+        })
     });
 
+    // var findArticleByLabel = function(article, label) {
+    //     if(obj.label === label) { return obj; }
+    //     for(var i in obj) {
+    //         if(obj.hasOwnProperty(i)){
+    //             var foundLabel = findObjectByLabel(obj[i], label);
+    //             if(foundLabel) { return foundLabel; }
+    //         }
+    //     }
+    //     return null;
+    // };
+
 function createCard(info) {
-    const card = document.createElement("div");
+    let card = document.createElement("div");
     card.classList.add("card");
 
-    const headline = document.createElement("div");
+    let headline = document.createElement("div");
     headline.classList.add("headline");
 
-    const author = document.createElement("div");
+    let author = document.createElement("div");
     author.classList.add("author");
 
-    const imgContainer = document.createElement("div");
+    let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-container");
     
-    const authorImg = document.createElement("img");
-    const authorName = document.createElement("span");
+    let authorImg = document.createElement("img");
+    let authorName = document.createElement("span");
 
     card.append(headline);
     card.append(author);

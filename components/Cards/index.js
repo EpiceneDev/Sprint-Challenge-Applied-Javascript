@@ -21,36 +21,31 @@
 axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(res => {
-        let articles = res.data.articles;
-        console.log("articles: ", articles);
-        Array.from(articles).map(article => {
-            const allArticles = article[i]
-            let card = createCard(article)
-            document.querySelector(".cards-container").appendChild(card);
-            console.log(res.data);
-        })
+        let articles = [res.data.articles];
+        console.log("res.data.articles: ", articles);
 
-
-        //for()
-        // if (articles == "Bootstrap") {
-        // }
-
-    //     articles.forEach(article => {
-    //         document.querySelector(".cards-container").appendChild(createCard(article));
-            
-    //     });
-    });
-
-    // var findArticleByLabel = function(article, label) {
-    //     if(obj.label === label) { return obj; }
-    //     for(var i in obj) {
-    //         if(obj.hasOwnProperty(i)){
-    //             var foundLabel = findObjectByLabel(obj[i], label);
-    //             if(foundLabel) { return foundLabel; }
-    //         }
-    //     }
-    //     return null;
-    // };
+        articles.forEach(topic => {
+            axios
+                .get(`https://lambda-times-backend.herokuapp.com/articles/0/${topic}/headline`)
+                .then(res => {
+                    res.forEach(article =>{
+                        console.log("article: ", article)
+                    });
+                    //let headlines = res.
+                    //createCard(res.data);
+                    console.log("headline: ", res)
+                })
+                .catch(error => {
+                    console.log("2Error: ", error);
+                });
+        });
+                // articles.forEach(article => {
+                //     let card = createCard(article)
+                //     document.querySelector(".cards-container").appendChild(card);
+                //     console.log(res.data);
+                // })
+    })
+    .catch(error => console.log("1Error: ", error));
 
 function createCard(article) {
     let card = document.createElement("div");

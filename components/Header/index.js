@@ -34,8 +34,8 @@ function Header() {
     title.textContent = "Lambda Times";
     temp.textContent = "98°";
 
-    return headerSection;
+    return header;
 }
 
 //add header
-document.querySelector(".header-container").appendChild(headerSection);
+document.querySelector(".header-container").appendChild(Header());

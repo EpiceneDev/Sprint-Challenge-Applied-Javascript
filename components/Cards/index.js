@@ -23,16 +23,19 @@ axios
     .then(res => {
         let articles = res.data.articles;
         console.log("articles: ", articles);
+        Array.from(articles).forEach(article => {
+            let card = createCard(article)
+            document.querySelector(".cards-container").appendChild(card);
+            console.log(res.data);
+        })
+        //for()
         // if (articles == "Bootstrap") {
         // }
 
-        let articlesArray = Array.from(articles);
-        articlesArray.map(article => {
+    //     articles.forEach(article => {
+    //         document.querySelector(".cards-container").appendChild(createCard(article));
             
-            createCard(article);
-            let body = document.querySelector("body");
-            body.appendChild(card);
-        })
+    //     });
     });
 
     // var findArticleByLabel = function(article, label) {
@@ -46,7 +49,7 @@ axios
     //     return null;
     // };
 
-function createCard(info) {
+function createCard(article) {
     let card = document.createElement("div");
     card.classList.add("card");
 
@@ -67,6 +70,11 @@ function createCard(info) {
     author.append(imgContainer);
     author.append(authorName);
     imgContainer.append(authorImg);
+
+    img.src = article.authorPhoto;
+    console.log("img.src: ", img.src);
+    headline.textContent = articles.headline;
+    authorName.textContent = articles.authorName;
     
     return card;
 }

@@ -23,11 +23,14 @@ axios
     .then(res => {
         let articles = res.data.articles;
         console.log("articles: ", articles);
-        Array.from(articles).forEach(article => {
+        Array.from(articles).map(article => {
+            const allArticles = article[i]
             let card = createCard(article)
             document.querySelector(".cards-container").appendChild(card);
             console.log(res.data);
         })
+
+
         //for()
         // if (articles == "Bootstrap") {
         // }

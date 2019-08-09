@@ -26,17 +26,19 @@ axios
 
         articles.forEach(topic => {
             axios
-                .get(`https://lambda-times-backend.herokuapp.com/articles/0/${topic}/headline`)
+                .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
                 .then(res => {
-                    res.forEach(article =>{
-                        console.log("article: ", article)
+                    let headlines = res.headline;
+                    console.log("headlines: ", headlines);
+                    headlines.forEach(item =>{
+                        console.log("item: ", item);
                     });
                     //let headlines = res.
                     //createCard(res.data);
                     console.log("headline: ", res)
                 })
                 .catch(error => {
-                    console.log("2Error: ", error);
+                    console.log("2nd Error: ", error);
                 });
         });
                 // articles.forEach(article => {
@@ -45,7 +47,7 @@ axios
                 //     console.log(res.data);
                 // })
     })
-    .catch(error => console.log("1Error: ", error));
+    .catch(error => console.log("1st Error: ", error));
 
 function createCard(article) {
     let card = document.createElement("div");

@@ -27,48 +27,51 @@ axios
         let techArticles = res.data.articles.technology;
         let jqArticles = res.data.articles.jquery;
         console.log("articles: ", articles);
-        
         console.log("javascript: ", articles.javascript);
         console.log("technology: ", articles.technology);
         console.log("jquery: ", articles.jquery);
-        bArticles.forEach(article => {
-            createCard(article);
-            console.log("bootstrap: ", bArticles.headline);
-
-        });
-       // Array.from(articles);
-        // let i = 0;
-        // for (let i of articles) {
-        //     while (i < articles.length) {
-        //     i += 2;
-        //     let topic = articles[i];
-        //     console.log("topic: ", topic);
-        //     axios
-        //         .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
-        //         .then(res => {
-        //             //res.forEach(item => )
-        //             //let headlines = res.headline;
-        //             //console.log("2nd call: ", res);
-                    
-        //             headlines.forEach(item =>{
-        //                 console.log("item: ", item);
-        //             });
-        //             //let headlines = res.
-        //             //createCard(res.data);
-        //             console.log("headline: ", res)
-        //         })
-        //         .catch(error => {
-        //             console.log("2nd Error: ", error);
-        //         });
-        //   }   
-        // };
-                // articles.forEach(article => {
-                //     let card = createCard(article)
-                //     document.querySelector(".cards-container").appendChild(card);
-                //     console.log(res.data);
-                // })
-    })
-    .catch(error => console.log("1st Error: ", error));
+        // while (i <= articles.${topic}.length) {
+            
+       
+        // bArticles.forEach(article => {
+        //     createCard(article);
+        //     console.log("bootstrap: ", bArticles.headline);
+        // }
+        // })
+        // Array.from(articles);
+         // let i = 0;
+         // for (let i of articles) {
+         //     while (i < articles.length) {
+         //     i += 2;
+         //     let topic = articles[i];
+         //     console.log("topic: ", topic);
+         //     axios
+         //         .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
+         //         .then(res => {
+         //             //res.forEach(item => )
+         //             //let headlines = res.headline;
+         //             //console.log("2nd call: ", res);
+                     
+         //             headlines.forEach(item =>{
+         //                 console.log("item: ", item);
+         //             });
+         //             //let headlines = res.
+         //             //createCard(res.data);
+         //             console.log("headline: ", res)
+         //         })
+         //         .catch(error => {
+         //             console.log("2nd Error: ", error);
+         //         });
+         //   }   
+         // };
+                 // articles.forEach(article => {
+                 //     let card = createCard(article)
+                 //     document.querySelector(".cards-container").appendChild(card);
+                 //     console.log(res.data);
+                 // })
+     })
+     .catch(error => console.log("1st Error: ", error));
+        
 
 function createCard(article) {
     let card = document.createElement("div");

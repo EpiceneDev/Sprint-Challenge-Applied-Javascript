@@ -30,6 +30,7 @@ axios
         console.log("javascript: ", articles.javascript);
         console.log("technology: ", articles.technology);
         console.log("jquery: ", articles.jquery);
+        ////♻️Take each topic and try to display articles:
         // while (i <= articles.${topic}.length) {
             
        
@@ -38,7 +39,7 @@ axios
         //     console.log("bootstrap: ", bArticles.headline);
         // }
         // })
-        // Array.from(articles);
+        // Array.from(articles); <===ABANDONED!!✂️❌
          // let i = 0;
          // for (let i of articles) {
          //     while (i < articles.length) {
@@ -64,6 +65,7 @@ axios
          //         });
          //   }   
          // };
+                // // ♻️
                  // articles.forEach(article => {
                  //     let card = createCard(article)
                  //     document.querySelector(".cards-container").appendChild(card);

@@ -22,35 +22,46 @@ axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(res => {
         let articles = res.data.articles;
-        console.log("res.data.articles: ", articles);
-        Array.from(articles);
-        let i = 0;
-        for (let i of articles) {
-            while (i < articles.length) {
-                
-            
-            i +=2;
-            let topic = articles[i];
-            console.log("topic: ", topic);
-            axios
-                .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
-                .then(res => {
-                    //res.forEach(item => )
-                    //let headlines = res.headline;
-                    //console.log("2nd call: ", res);
+        let bArticles = res.data.articles.bootstrap;
+        let jsArticles = res.data.articles.javascript;
+        let techArticles = res.data.articles.technology;
+        let jqArticles = res.data.articles.jquery;
+        console.log("articles: ", articles);
+        
+        console.log("javascript: ", articles.javascript);
+        console.log("technology: ", articles.technology);
+        console.log("jquery: ", articles.jquery);
+        bArticles.forEach(article => {
+            createCard(article);
+            console.log("bootstrap: ", bArticles.headline);
+
+        });
+       // Array.from(articles);
+        // let i = 0;
+        // for (let i of articles) {
+        //     while (i < articles.length) {
+        //     i += 2;
+        //     let topic = articles[i];
+        //     console.log("topic: ", topic);
+        //     axios
+        //         .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
+        //         .then(res => {
+        //             //res.forEach(item => )
+        //             //let headlines = res.headline;
+        //             //console.log("2nd call: ", res);
                     
-                    headlines.forEach(item =>{
-                        console.log("item: ", item);
-                    });
-                    //let headlines = res.
-                    //createCard(res.data);
-                    console.log("headline: ", res)
-                })
-                .catch(error => {
-                    console.log("2nd Error: ", error);
-                });
-          }   
-        };
+        //             headlines.forEach(item =>{
+        //                 console.log("item: ", item);
+        //             });
+        //             //let headlines = res.
+        //             //createCard(res.data);
+        //             console.log("headline: ", res)
+        //         })
+        //         .catch(error => {
+        //             console.log("2nd Error: ", error);
+        //         });
+        //   }   
+        // };
                 // articles.forEach(article => {
                 //     let card = createCard(article)
                 //     document.querySelector(".cards-container").appendChild(card);
@@ -81,10 +92,10 @@ function createCard(article) {
     author.append(authorName);
     imgContainer.append(authorImg);
 
-    img.src = article.authorPhoto;
-    console.log("img.src: ", img.src);
-    headline.textContent = articles.headline;
-    authorName.textContent = articles.authorName;
+    authorImg.src = article.authorPhoto;
+    //console.log("authorImg.src: ", authorImg.src);
+    headline.textContent = article.headline;
+    authorName.textContent = article.authorName;
     
     return card;
 }

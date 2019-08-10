@@ -30,13 +30,34 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+    1. Document Object Model
+    2. An API - Application Program Interface 
+    3. Allows for manipulation of the code without reloading the page.
+    4. It is in the browser.
+
 2. What is an event?
+
+    1. A user input
+        1. I.e. key presses, mouse moves, scrolls, clicks, etc.
 
 3. What is an event listener?
 
+    1. A method attached to the element that “listens” for a certain user action that is identified in the event listener function. When the code “hears” the action, it will carry out its callback function. 
+    2. Has the event and a callback function as arguements.
+
 4. Why would we convert a NodeList into an Array?
 
+    1. So we can use methods to manipulate the data in it.
+        1. Can only use four methods on an “array-like” item (NodeList)
+            1. Some browsers do not support the nodelist as array-like. (reference: MDN-NodeList)
+
 5. What is a component?
+
+    1. A closed function that returns one thing.
+    2. Contains reusable code. 
+    3. Contains DRY code.
+    4. Stand alone, independent parts of the code.
+
 
 ### Git Set up
 

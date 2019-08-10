@@ -17,3 +17,90 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios
+    .get("https://lambda-times-backend.herokuapp.com/articles")
+    .then(res => {
+        let articles = res.data.articles;
+        let bArticles = res.data.articles.bootstrap;
+        let jsArticles = res.data.articles.javascript;
+        let techArticles = res.data.articles.technology;
+        let jqArticles = res.data.articles.jquery;
+        console.log("articles: ", articles);
+        console.log("javascript: ", articles.javascript);
+        console.log("technology: ", articles.technology);
+        console.log("jquery: ", articles.jquery);
+        ////♻️Take each topic and try to display articles:
+        // while (i <= articles.${topic}.length) {
+            
+       
+        // bArticles.forEach(article => {
+        //     createCard(article);
+        //     console.log("bootstrap: ", bArticles.headline);
+        // }
+        // })
+        // Array.from(articles); <===ABANDONED!!✂️❌
+         // let i = 0;
+         // for (let i of articles) {
+         //     while (i < articles.length) {
+         //     i += 2;
+         //     let topic = articles[i];
+         //     console.log("topic: ", topic);
+         //     axios
+         //         .get(`https://lambda-times-backend.herokuapp.com/articles/${topic}`)
+         //         .then(res => {
+         //             //res.forEach(item => )
+         //             //let headlines = res.headline;
+         //             //console.log("2nd call: ", res);
+                     
+         //             headlines.forEach(item =>{
+         //                 console.log("item: ", item);
+         //             });
+         //             //let headlines = res.
+         //             //createCard(res.data);
+         //             console.log("headline: ", res)
+         //         })
+         //         .catch(error => {
+         //             console.log("2nd Error: ", error);
+         //         });
+         //   }   
+         // };
+                // // ♻️
+                 // articles.forEach(article => {
+                 //     let card = createCard(article)
+                 //     document.querySelector(".cards-container").appendChild(card);
+                 //     console.log(res.data);
+                 // })
+     })
+     .catch(error => console.log("1st Error: ", error));
+        
+
+function createCard(article) {
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let headline = document.createElement("div");
+    headline.classList.add("headline");
+
+    let author = document.createElement("div");
+    author.classList.add("author");
+
+    let imgContainer = document.createElement("div");
+    imgContainer.classList.add("img-container");
+    
+    let authorImg = document.createElement("img");
+    let authorName = document.createElement("span");
+
+    card.append(headline);
+    card.append(author);
+    author.append(imgContainer);
+    author.append(authorName);
+    imgContainer.append(authorImg);
+
+    authorImg.src = article.authorPhoto;
+    //console.log("authorImg.src: ", authorImg.src);
+    headline.textContent = article.headline;
+    authorName.textContent = article.authorName;
+    
+    return card;
+}
